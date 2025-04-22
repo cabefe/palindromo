@@ -1,6 +1,6 @@
 # Programa para Comprobar Palíndromos
 
-## DescripciónDescripción
+## Descripción
 
 Este programa en Python comprueba si una frase es palíndroma, es decir, si se lee igual de izquierda a derecha que de derecha a izquierda, ignorando espacios, signos de puntuación y mayúsculas.
 
