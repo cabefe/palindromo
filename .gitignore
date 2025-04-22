@@ -1,7 +1,5 @@
-#Ignorar todos los LOG
+#Ignorar los siguientes formatos de archivo
 
 *.log
-
-#Ignorar todos los ENV
-
 *.env
+*.toml
