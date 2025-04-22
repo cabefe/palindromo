@@ -1,3 +1,7 @@
 #Ignorar todos los LOG
 
 *.log
+
+#Ignorar todos los ENV
+
+*.env
