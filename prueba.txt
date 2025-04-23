@@ -1,3 +1,0 @@
-password = 12345678
-contraseña = 866gtsfged
-user = pepe
