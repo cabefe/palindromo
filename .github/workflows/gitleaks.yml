@@ -2,6 +2,8 @@ name: Detectar fugas con Gitleaks
 
 on:
   pull_request:
+    branches:
+      - master
   push:
   workflow_dispatch:
   schedule:
