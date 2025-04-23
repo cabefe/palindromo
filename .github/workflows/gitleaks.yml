@@ -1,0 +1,26 @@
+name: Detectar fugas con Gitleaks
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/*'
+  pull_request:
+
+jobs:
+  gitleaks-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Ejecutar Gitleaks para buscar secretos
+        uses: gitleaks/gitleaks-action@v2
+        with:
+          args: detect --source=. --no-git --redact --report-path=gitleaks-report.sarif
+
+      - name: Subir reporte como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: gitleaks-report
+          path: gitleaks-report.sarif
