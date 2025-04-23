@@ -16,9 +16,5 @@ jobs:
 
       - name: Ejecutar Gitleaks para buscar secretos
         uses: gitleaks/gitleaks-action@v2
-
-      - name: Subir reporte como artefacto
-        uses: actions/upload-artifact@v4
-        with:
-          name: gitleaks-report
-          path: gitleaks-report.sarif
+        env:
+          GITLEAKS_NOTIFY_USER_LIST: "@cabefe"
