@@ -1,6 +1,11 @@
 name: Detectar fugas con Gitleaks
 
-on: [pull_request, push, workflow_dispatch]
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * *" # run once a day at 4 AM
 
 jobs:
   gitleaks-scan:
@@ -12,4 +17,5 @@ jobs:
       - name: Ejecutar Gitleaks para buscar secretos
         uses: gitleaks/gitleaks-action@v2
         env:
-          GITLEAKS_NOTIFY_USER_LIST: "@cabefe"
+          GITHUB_TOKEN: $
+          GITLEAKS_LICENSE: $ # Only required for Organizations, not personal accounts.
