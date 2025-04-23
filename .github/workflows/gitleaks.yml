@@ -1,11 +1,6 @@
 name: Detectar fugas con Gitleaks
 
-on:
-  push:
-    branches:
-      - master
-      - 'feature/*'
-  pull_request:
+on: [pull_request, push, workflow_dispatch]
 
 jobs:
   gitleaks-scan:
