@@ -1,0 +1,3 @@
+coantraseña = wjqoejqo
+password = as mdnskdan
+user = pepe
