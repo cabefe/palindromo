@@ -1,22 +1,17 @@
-name: Detectar fugas con Gitleaks
-
-on:
-  pull_request:
-    branches:
-      - master
-  push:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 4 * * *" # run once a day at 4 AM
-
+name: gitleaks
+on: [pull_request, push, workflow_dispatch]
 jobs:
-  gitleaks-scan:
+  scan:
+    name: gitleaks
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout del código
-        uses: actions/checkout@v4
-
-      - name: Ejecutar Gitleaks para buscar secretos
-        uses: gitleaks/gitleaks-action@v2
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
         env:
-          GITLEAKS_NOTIFY_USER_LIST: '@cabefe'
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE}}
+          # examples of how to use optional configs:
+          # GITLEAKS_CONFIG: "configs/simple-config.toml"
+          GITLEAKS_NOTIFY_USER_LIST: "@cabefe"
