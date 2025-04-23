@@ -16,8 +16,6 @@ jobs:
 
       - name: Ejecutar Gitleaks para buscar secretos
         uses: gitleaks/gitleaks-action@v2
-        with:
-          args: git . --no-git --redact --report-path=gitleaks-report.sarif
 
       - name: Subir reporte como artefacto
         uses: actions/upload-artifact@v4
