@@ -3,7 +3,7 @@ name: Detectar fugas con Gitleaks
 on:
   push:
     branches:
-      - main
+      - master
       - 'feature/*'
   pull_request:
 
