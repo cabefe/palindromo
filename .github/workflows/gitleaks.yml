@@ -2,9 +2,6 @@ name: Detectar fugas con Gitleaks
 
 on:
   push:
-    branches:
-      - master
-      
   pull_request:
   workflow_dispatch:
 
@@ -18,4 +15,5 @@ jobs:
       - name: Ejecutar Gitleaks para buscar secretos
         uses: gitleaks/gitleaks-action@v2
         env:
+          GITLEAKS_CONFIG: gitleaks.toml
           GITLEAKS_NOTIFY_USER_LIST: "@cabefe"
